@@ -14,7 +14,11 @@ When is the last time you leveraged a CDN?
 
 ```dockerfile
 docker build --force-rm -t docker-centos-nginx-wordpress-cdn .
-docker run -d --name test -p 8082:80 -v /home/lenixx/workspace/volume-wordpress:/var/www/wordpress docker-centos-nginx-wordpress-cdn
+```
+## Running in a container
+
+```dockerfile
+docker run -d --name test -p 8082:80 -v <yourpath>:/var/www/wordpress docker-centos-nginx-wordpress-cdn
 ```
 
 ### Configuration specific to Email
