@@ -15,7 +15,12 @@ When is the last time you leveraged a CDN?
 ```dockerfile
 docker build --force-rm -t docker-centos-nginx-wordpress-cdn .
 ```
-## Running in a container
+## [Running in a container](#running)
+
+Change "<yourpath>" to the root of the directory you want to mount. This becomes the "document root"
+that nginx will serve your content.
+
+To see how this is mapped in the nginx configuration file see [conf/nginx/default.conf](conf/nginx/default.conf)
 
 ```dockerfile
 docker run -d --name test -p 8082:80 -v <yourpath>:/var/www/wordpress docker-centos-nginx-wordpress-cdn
