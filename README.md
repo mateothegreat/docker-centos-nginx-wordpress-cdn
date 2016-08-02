@@ -22,6 +22,8 @@ This is known as "persistent storage" when using load-balanced or immutable cont
 ## Building the Docker Image
 
 ```dockerfile
+git clone https://github.com/mateothegreat/docker-centos-nginx-wordpress-cdn.git
+cd docker-centos-nginx-wordpress-cdn
 docker build --force-rm -t docker-centos-nginx-wordpress-cdn .
 ```
 
