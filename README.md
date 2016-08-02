@@ -1,8 +1,6 @@
 # Scalable & Secure WordPress
 When is the last time you leveraged a CDN?
 
----
-
 - Nginx
 - PHP-FPM
 - Static Files mount uses a cloud CDN.
@@ -10,12 +8,24 @@ When is the last time you leveraged a CDN?
 - Wordpress install is on a separate, persistent, storage device.
 - Send emails using SSMTP & Free Email Service [mailgun.com](https://mailgun.com)
 
+## Customizable content root
+Most docker images will overwrite or remove all content (such as wordpress images) when
+the image is booted up. This will remove any files if you mount your own volume.
+
+This image provides the webserver, php-fpm and a default configuration that loads 
+site content from a volume mounted which you specify at run time. You can change
+your "content" directory (the volume mounted) without having to rebuild the docker
+image.
+
+This is known as "persistent storage" when using load-balanced or immutable containers.
+
 ## Building the Docker Image
 
 ```dockerfile
 docker build --force-rm -t docker-centos-nginx-wordpress-cdn .
 ```
-## [Running in a container](#running)
+
+## Running in a container
 
 Change "<yourpath>" to the root of the directory you want to mount. This becomes the "document root"
 that nginx will serve your content.
